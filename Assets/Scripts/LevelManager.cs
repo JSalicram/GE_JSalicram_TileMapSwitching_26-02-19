@@ -37,12 +37,12 @@ public class LevelManager : MonoBehaviour {
         if (itemInCollision.name == "Start")
         {
             Timing = true;
-
+            Timer
         }
 
         if (itemInCollision.name == "Stop")
         {
-
+            Timing = false;
         }
 
         Destroy(itemInCollision.gameObject);

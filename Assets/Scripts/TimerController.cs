@@ -12,8 +12,8 @@ public class TimerController : MonoBehaviour {
         while (LevelManager.instance.Timing)
         {
             Time++;
-
-            yield return null;
+            Timer.text = "" + Time;
+            yield return new WaitForSeconds(1);
         }
     }
 	
