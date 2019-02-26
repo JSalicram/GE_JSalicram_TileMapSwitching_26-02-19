@@ -12,17 +12,40 @@ public class LevelManager : MonoBehaviour {
     public GameObject tileMapA;
     public GameObject tileMapB;
 
+    public bool Timing;
+
+    public TimerController Timer;
+
     private void Awake()
     {
         // set the instance property/variable to this object
         instance = this;
 
+    #if UNITY_EDITOR
         if (tileMapA == null || tileMapB == null)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+    #else
+        Application.Quit();
+    #endif
+
+    }
+
+    public void OnLevelItemTriggerEnter(Collider2D otherColliderInCollision, TimerCollectibles itemInCollision)
+    {
+        if (itemInCollision.name == "Start")
+        {
+            Timing = true;
+
+        }
+
+        if (itemInCollision.name == "Stop")
         {
 
         }
+
+        Destroy(itemInCollision.gameObject);
     }
 
-
-    
 }

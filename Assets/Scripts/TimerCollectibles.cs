@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class TimerCollectibles : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnTriggerEnter2D(Collider2D otherColliderInCollision)
+    {
+        LevelManager.instance.OnLevelItemTriggerEnter(otherColliderInCollision, this);
+    }
 }
